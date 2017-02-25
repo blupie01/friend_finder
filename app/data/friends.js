@@ -78,3 +78,6 @@ var friends = [
 		]		
 	}
 ];
+
+// Export friends array
+module.exports = friends;
