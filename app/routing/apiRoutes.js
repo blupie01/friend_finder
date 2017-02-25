@@ -6,7 +6,10 @@ module.exports = function(app) {
 		res.json(friends);
 	});
 
-	app.post("")
+	// API POST request
+	app.post("/api/friends", function(req, res) {
+		// compatibility logic goes here
+	})
 };
 
   app.post("/api/tables", function(req, res) {
