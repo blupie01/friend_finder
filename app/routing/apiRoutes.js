@@ -1,7 +1,5 @@
 var friends = require("../data/friends");
 
-console.log("HERE: " + friends);
-
 module.exports = function(app) {
 	// API GET requests
 	app.get("/api/friends", function(req, res) {
