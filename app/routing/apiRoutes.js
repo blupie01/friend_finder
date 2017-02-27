@@ -5,14 +5,12 @@ console.log("HERE: " + friends);
 module.exports = function(app) {
 	// API GET requests
 	app.get("/api/friends", function(req, res) {
-        console.log("apiRoutes" + friends);
 		res.json(friends);
 	});
 
 	// API POST request
 	app.post("/api/friends", function(req, res) {
 		// compatibility logic goes here
-        console.log(req.body);
         var userGrade = req.body.grade;
         // empty array to hold results to pass back to html
         // used to account for multiple matches
