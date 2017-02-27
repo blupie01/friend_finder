@@ -182,7 +182,7 @@
 	    	$(selector).chosen(config[selector]);
 	    };
 
-	    // Capture the form inputs and validate
+	    // Get inputs and validate
 	    $("#submit").on("click", function() {
 	      	function validateForm() {
 	      	var isValid = true;
@@ -200,16 +200,15 @@
 	      	return isValid;
 	    };
 
-    // If all required fields are filled
-    if (validateForm() == true)
-    {
-      // Create an object for the user's data
-        var userData = {
-          name: $("#name").val(),
-          photo: $("#photo").val(),
-          scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), ],
-
-        }
+    	// If all fields have been filled
+    	if (validateForm() == true) {
+      		// Put form info into an object
+	        var userData = {
+	          name: $("#name").val(),
+	          photo: $("#photo").val(),
+	          scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val()]
+	        };
+	    };
 
          var scoreArray = userData.scores;
          console.log(scoreArray);
@@ -262,93 +261,3 @@
 	</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-<!-- 	<div>
-		<form>
-			<fieldset>
-				<legend>Do you like rum?</legend>
-				<input type="radio" name="q1" value=1 id="q1_1"><label for="q1_1">1 (Not at all)</label>
-				<input type="radio" name="q1" value=2 id="q1_2"><label for="q1_2">2</label>
-				<input type="radio" name="q1" value=3 id="q1_3"><label for="q1_3">3 (No opinion)</label>
-				<input type="radio" name="q1" value=4 id="q1_4"><label for="q1_4">4</label>
-				<input type="radio" name="q1" value=5 id="q1_5"><label for="q1_5">5 (Love it)</label>
-			</fieldset>
-			<fieldset>
-				<legend>Did you like Terminator 2?</legend>
-				<input type="radio" name="q2" value=1 id="q2_1"><label for="q2_1">1 (Not at all)</label>
-				<input type="radio" name="q2" value=2 id="q2_2"><label for="q2_2">2</label>
-				<input type="radio" name="q2" value=3 id="q2_3"><label for="q2_3">3 (No opinion)</label>
-				<input type="radio" name="q2" value=4 id="q2_4"><label for="q2_4">4</label>
-				<input type="radio" name="q2" value=5 id="q2_5"><label for="q2_5">5 (Love it)</label>
-			</fieldset>
-			<fieldset>
-				<legend>Do you want to go to space?</legend>
-				<input type="radio" name="q3" value=1 id="q3_1"><label for="q3_1">1 (Not at all)</label>
-				<input type="radio" name="q3" value=2 id="q3_2"><label for="q3_2">2</label>
-				<input type="radio" name="q3" value=3 id="q3_3"><label for="q3_3">3 (No opinion)</label>
-				<input type="radio" name="q3" value=4 id="q3_4"><label for="q3_4">4</label>
-				<input type="radio" name="q3" value=5 id="q3_5"><label for="q3_5">5 (I'm a space cowboy)</label>
-			</fieldset> -->
-	<!-- 		<fieldset>
-				<legend>Do you smoke hookah?</legend>
-				<input type="radio" name="q4" value=1 id="q4_1"><label for="q4_1">1 (Not at all)</label>
-				<input type="radio" name="q4" value=2 id="q4_2"><label for="q4_2">2</label>
-				<input type="radio" name="q4" value=3 id="q4_3"><label for="q4_3">3 (Meh)</label>
-				<input type="radio" name="q4" value=4 id="q4_4"><label for="q4_4">4</label>
-				<input type="radio" name="q4" value=5 id="q4_5"><label for="q4_5">5 (I'm a dragon)</label>
-			</fieldset>
-			<fieldset>
-				<legend>Do you like gardening?</legend>
-				<input type="radio" name="q5" value=1 id="q5_1"><label for="q5_1">1 (Everything I touch dies)</label>
-				<input type="radio" name="q5" value=2 id="q5_2"><label for="q5_2">2</label>
-				<input type="radio" name="q5" value=3 id="q5_3"><label for="q5_3">3 (Meh)</label>
-				<input type="radio" name="q5" value=4 id="q5_4"><label for="q5_4">4</label>
-				<input type="radio" name="q5" value=5 id="q5_5"><label for="q5_5">5 (Spirit of the forest)</label>
-			</fieldset>
-			<fieldset>
-				<legend>Do you like cooking?</legend>
-				<input type="radio" name="q6" value=1 id="q6_1"><label for="q6_1">1 (I mess up instant noodles)</label>
-				<input type="radio" name="q6" value=2 id="q6_2"><label for="q6_2">2</label>
-				<input type="radio" name="q6" value=3 id="q6_3"><label for="q6_3">3 (Edible)</label>
-				<input type="radio" name="q6" value=4 id="q6_4"><label for="q6_4">4</label>
-				<input type="radio" name="q6" value=5 id="q6_5"><label for="q6_5">5 (Iron Chef)</label>
-			</fieldset>
-			<fieldset>
-				<legend>Are you organized?</legend>
-				<input type="radio" name="q7" value=1 id="q7_1"><label for="q7_1">1 (Slob)</label>
-				<input type="radio" name="q7" value=2 id="q7_2"><label for="q7_2">2</label>
-				<input type="radio" name="q7" value=3 id="q7_3"><label for="q7_3">3 (Meh)</label>
-				<input type="radio" name="q7" value=4 id="q7_4"><label for="q7_4">4</label>
-				<input type="radio" name="q7" value=5 id="q7_5"><label for="q7_5">5 (Clean)</label>
-			</fieldset>
-			<fieldset>
-				<legend>Are you a hater?</legend>
-				<input type="radio" name="q8" value=1 id="q8_1"><label for="q8_1">1 (Buddha)</label>
-				<input type="radio" name="q8" value=2 id="q8_2"><label for="q8_2">2</label>
-				<input type="radio" name="q8" value=3 id="q8_3"><label for="q8_3">3 (Only human)</label>
-				<input type="radio" name="q8" value=4 id="q8_4"><label for="q8_4">4</label>
-				<input type="radio" name="q8" value=5 id="q8_5"><label for="q8_5">5 (I burn with the power of a thousand suns)</label>
-			</fieldset> -->
-<!-- 			<fieldset>
-				<legend>Do you like to rustle people's jimmies?</legend>
-				<input type="radio" name="q9" value=1 id="q9_1"><label for="q9_1">1 (What is a jimmy)</label>
-				<input type="radio" name="q9" value=2 id="q9_2"><label for="q9_2">2</label>
-				<input type="radio" name="q9" value=3 id="q9_3"><label for="q9_3">3 (I know someone named Jimmy)</label>
-				<input type="radio" name="q9" value=4 id="q9_4"><label for="q9_4">4</label>
-				<input type="radio" name="q9" value=5 id="q9_5"><label for="q9_5">5 (Jimmy rustler)</label>
-			</fieldset>
-			<fieldset>
-				<legend>Do you get rustled easily?</legend>
-				<input type="radio" name="q10" value=1 id="q10_1"><label for="q10_1">1 (If someone rustles my left jimmy, I turn to them my right one)</label>
-				<input type="radio" name="q10" value=2 id="q10_2"><label for="q10_2">2</label>
-				<input type="radio" name="q10" value=3 id="q10_3"><label for="q10_3">3 (**slightly rustled**)</label>
-				<input type="radio" name="q10" value=4 id="q10_4"><label for="q10_4">4</label>
-				<input type="radio" name="q10" value=5 id="q10_5"><label for="q10_5">5 (**rustling intensifies**)</label>
-			</fieldset> -->
