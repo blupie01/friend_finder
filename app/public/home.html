@@ -12,8 +12,24 @@
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 </head>
 <body>
-	<h1>Welcome to Friend Finder!!</h1>
-	<h3>You must be desperately lonely if you're here!</h3>
-	<h5>Click <button type="button"><img src="./assets/images/form.png" style="width: 120px; height: 125px;"></button> To Begin!</h5>
+	<div class="container">
+	    <div class="jumbotron">
+	        <h1><i class="fa fa-facebook-square" aria-hidden="true"></i>Welcome to Friend Finder!!</h1>
+	      	<h3>You must be desperately lonely if you're here!</h3>
+	      	<hr>
+	      	<h2>Answer some questions and find your friend!</h2>
+	      	<br>
+
+	      	<div>
+	        	<a href="/survey"><button type="button" class="btn btn-lg btn-primary"><h4><span class="glyphicon glyphicon-list-alt"></span>Survey</h4></button></a>  
+	      	</div>
+	    </div>
+
+	    <footer class="footer">
+	        <div class="container">
+	            <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/blupie01/friend_finder.git">GitHub Repo</a></p>
+	        </div>
+	    </footer>
+	</div>
 </body>
 </html>

@@ -14,15 +14,23 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
 	<style type="text/css">
-		img {
-	    	width: 200px;
+	    img {
+	      width: 200px;
+	      margin: auto;
+	      display: block;
+	    }
+	    #modal-body {
+	      text-align: center;
+	    }
+	    h1, h2 {
+	      text-align: center;
 	    }
 	</style>
 </head>
 <body>
 	<header>
 		<h1>FIND YOUR FRIEND</h1>
-		<h4>Fill Out The Form Below To Find A Friend</h4>
+		<h2>Fill Out The Form Below To Find A Friend</h4>
 	</header>
 
     <h2>Survey Questions</h2>
@@ -146,7 +154,7 @@
 	<hr>
 	<footer class="footer">
 	    <div class="container">
-	        <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/afhaque/friendfinder">GitHub Repo</a></p>
+	        <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/blupie01/friend_finder.git">GitHub Repo</a></p>
 	    </div>
 	</footer>
 
@@ -184,19 +192,19 @@
 	    // Get inputs and validate
 	    $("#submit").on("click", function() {
 	      	function validateForm() {
-	      	var isValid = true;
-	      	$(".form-control").each(function() {
-	        	if ($(this).val() === "") {
-	            	isValid = false;
-	        	};
-	      	});
+		      	var isValid = true;
+		      	$(".form-control").each(function() {
+		        	if ($(this).val() === "") {
+		            	isValid = false;
+		        	};
+	      		});
 
-	      	$(".chosen-select").each(function() {
-	        	if ($(this).val() === "") {
-	          		isValid = false
-	        	};
-	      	});
-	      	return isValid;
+	      		$(".chosen-select").each(function() {
+	        		if ($(this).val() === "") {
+	          			isValid = false
+	        		};
+	      		});
+	      		return isValid;
 	    };
 
     	// If all fields have been filled
@@ -213,7 +221,7 @@
 
         // Goes through all choices and tallies total score
         for (var i = 0; i < userData.scores.length; i++) {
-        	totalScore += parseInt(scoreArray[i]);
+        	totalScore += parseInt(userData.scores[i]);
         };
 
         // Assigns a grade to be passed 
@@ -236,13 +244,14 @@
 
         // AJAX post the data to the friends API. 
         $.post(currentURL + "/api/friends", userData, function(data) {
-          for (var i = 0; i < data.length; i++) {
-          	// Put results into modal
-            $("#modal-body").append("<h2>"+data[i].name+"</h2>");
-            $("#modal-body").append("<img src="+data[i].photo+"></img>");
-          };
-          // Show the modal with the best match 
-          $("#resultsModal").modal('toggle');
+        	$("#modal-body").empty();
+	        for (var i = 0; i < data.length; i++) {
+	        	// Put results into modal
+	            $("#modal-body").append("<h2>"+data[i].name+"</h2>");
+	            $("#modal-body").append("<img src="+data[i].photo+"></img>");
+	        };
+          	// Show the modal with the best match 
+            $("#resultsModal").modal('toggle');
         });
     	} else {
       		alert("Please fill out all fields before submitting!");
