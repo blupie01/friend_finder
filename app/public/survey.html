@@ -208,54 +208,46 @@
 	          photo: $("#photo").val(),
 	          scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val()]
 	        };
-	    };
+	    
+        var totalScore = 0;
+        var userGrade = "";
 
-         var scoreArray = userData.scores;
-         console.log(scoreArray);
-         var totalScore = 0;
-         var userGrade ="";
-         for (var i = 0; i < scoreArray.length; i++) {
-           totalScore += parseInt(scoreArray[i]);
-         }
-         if(totalScore >= 10 && totalScore <=20) {
-            userGrade = "a"
-            userData["userGrade"] = userGrade;
-         } else if (totalScore >= 21 && totalScore <= 30) {
-            userGrade = "b";
-            userData["userGrade"] = userGrade;
-         } else if (totalScore >= 31 && totalScore <= 40) {
-            userGrade = "c";
-            userData["userGrade"] = userGrade;
-         }else  {
-            userGrade = "d";
-            userData["userGrade"] = userGrade;
-         };
-         
-         console.log(userData);
-         
+        // Goes through all choices and tallies total score
+        for (var i = 0; i < userData.scores.length; i++) {
+        	totalScore += parseInt(scoreArray[i]);
+        };
 
-
-
-        // AJAX post the data to the friends API.
-
-          // Grab the URL of the website
+        // Assigns a grade to be passed 
+        if(totalScore >= 10 && totalScore <=20) {
+        	grade = "a"
+        	userData["grade"] = grade;
+        } else if (totalScore >= 21 && totalScore <= 30) {
+        	grade = "b";
+        	userData["grade"] = grade;
+        } else if (totalScore >= 31 && totalScore <= 40) {
+        	grade = "c";
+        	userData["grade"] = grade;
+        } else {
+        	grade = "d";
+        	userData["grade"] = grade;
+        };
+        
+        // Grab the URL of the website
         var currentURL = window.location.origin;
 
         // AJAX post the data to the friends API. 
-        $.post(currentURL + "/api/friends", userData, function(data){
+        $.post(currentURL + "/api/friends", userData, function(data) {
           for (var i = 0; i < data.length; i++) {
+          	// Put results into modal
             $("#modal-body").append("<h2>"+data[i].name+"</h2>");
             $("#modal-body").append("<img src="+data[i].photo+"></img>");
           };
           // Show the modal with the best match 
           $("#resultsModal").modal('toggle');
         });
-    }
-    else
-    {
-      alert("Please fill out all fields before submitting!");
-    }
-      
+    	} else {
+      		alert("Please fill out all fields before submitting!");
+    	};
       return false;
     });
 	</script>

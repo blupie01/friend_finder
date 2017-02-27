@@ -4,23 +4,28 @@ var friends = [
 	{
 		"name": "Aang",
 		"photo": "../public/assets/images/aang.jpg",
-		"totalScore": 20
+		"totalScore": 20,
+		"grade": "a"
 	}, {
 		"name": "Anri",
 		"photo": "../public/assets/images/anri.jpg",
-		"totalScore": 35
+		"totalScore": 35,
+		"grade": ""
 	}, {
 		"name": "Gandalf",
 		"photo": "../public/assets/images/gandalf.jpg",
-		"totalScore": 5
+		"totalScore": 10,
+		"grade": ""
 	}, {
 		"name": "Guts",
 		"photo": "../public/assets/images/guts.jpeg",
-		"totalScore": 45
+		"totalScore": 45,
+		"grade": ""
 	}, {
 		"name": "Lady Maria",
 		"photo": "../public/assets/images/lady_maria.png",
-		"totalScore": 15
+		"totalScore": 15,
+		"grade": ""
 	}
 ];
 
