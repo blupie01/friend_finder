@@ -9,18 +9,16 @@ module.exports = function(app) {
 	// API POST request
 	app.post("/api/friends", function(req, res) {
 		// compatibility logic goes here
-	})
+    var userGrade = req.body.grade;
+    // empty array to hold results to pass back to html
+    // used to account for multiple matches
+    var resultsArray = [];
+    // loop through friends and find matches and put into resultsArray
+    for (var i = 0; i < friends.length; i++) {
+      if (userGrade == friends[i].grade) {
+        resultsArray.push(friends[i]);
+      };
+    };
+    res.json(resultsArray);
+	});
 };
-
-  app.post("/api/tables", function(req, res) {
-    // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-    // It will do this by sending out the value "true" have a table
-    if (tableData.length < 5) {
-      tableData.push(req.body);
-      res.json(true);
-    }
-    else {
-      waitListData.push(req.body);
-      res.json(false);
-    }
-  });
