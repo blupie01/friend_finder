@@ -1,5 +1,5 @@
 {
-  "name": "package.json",
+  "name": "friend_finder",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
